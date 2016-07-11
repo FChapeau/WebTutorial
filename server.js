@@ -5,9 +5,11 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 
+//Config
 app.set('views', __dirname + '/public/views');
 app.engine('html', require('ejs').renderFile);
 
+//Use
 app.use(require("./controllers"));
 app.use(express.static('public'));
 
@@ -17,10 +19,6 @@ app.get('/listUsers', function(req, res){
         res.end( data );
     });*/
     res.send("Hello World!");
-});
-
-app.get('/', function (req, res){
-    res.render('index.html');
 });
 
 var server = app.listen(8081, function(){
