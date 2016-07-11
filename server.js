@@ -8,13 +8,15 @@ var fs = require("fs");
 app.set('views', __dirname + '/public/views');
 app.engine('html', require('ejs').renderFile);
 
+app.use(require("./controllers"));
 app.use(express.static('public'));
 
 app.get('/listUsers', function(req, res){
-    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+    /*fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
         console.log( data );
         res.end( data );
-    });
+    });*/
+    res.send("Hello World!");
 });
 
 app.get('/', function (req, res){
