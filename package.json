@@ -10,7 +10,10 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "ejs": "~2.4.2",
     "express": "~4.14.0",
-    "ejs": "~2.4.2"
+    "sequelize": "^3.23.4",
+    "sequelize-cli": "^2.4.0",
+    "sqlite3": "^3.1.4"
   }
 }

@@ -4,6 +4,7 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
+var models = require("./models");
 
 //Config
 app.set('views', __dirname + '/public/views');
@@ -21,9 +22,12 @@ app.get('/listUsers', function(req, res){
     res.send("Hello World!");
 });
 
-var server = app.listen(8081, function(){
-    var host = server.address().address;
-    var port = server.address.port;
+models.sequelize.sync().then(function (){
+    var server = app.listen(8081, function(){
+        var host = server.address().address;
+        var port = server.address.port;
 
-   console.log("Example app listening at http://%s:%s", host, port)
+        console.log("Example app listening at http://%s:%s", host, port)
+    })
+
 });
