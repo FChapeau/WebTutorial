@@ -28,6 +28,12 @@ router.route("/todo")
             .then(function(payload){
                 res.send("Dude!")
             })
+    })
+    .delete(function(req, res){
+        Models.Tasks.destroy({where: {id: req.body.id}})
+            .then(function(payload){
+                res.send("DELETED");
+            })
     });
 
 module.exports = router;
