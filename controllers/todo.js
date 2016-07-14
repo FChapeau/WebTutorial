@@ -22,6 +22,12 @@ router.route("/todo")
              console.log("Success");
          });
         res.send("Stuff");
+    })
+    .put(function(req, res){
+        Models.Tasks.update(req.body, {where: {id : req.body.id}})
+            .then(function(payload){
+                res.send("Dude!")
+            })
     });
 
 module.exports = router;
