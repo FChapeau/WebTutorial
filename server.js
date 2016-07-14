@@ -5,6 +5,7 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var models = require("./models");
+var bodyparser = require('body-parser');
 
 //Config
 app.set('views', __dirname + '/public/views');
@@ -13,6 +14,7 @@ app.engine('html', require('ejs').renderFile);
 //Use
 app.use(require("./controllers"));
 app.use(express.static('public'));
+app.use(bodyparser.json());
 
 app.get('/listUsers', function(req, res){
     /*fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
