@@ -6,14 +6,15 @@ var app = express();
 var fs = require("fs");
 var models = require("./models");
 var bodyparser = require('body-parser');
+var morgan = require('morgan')
 
 //Config
-app.set('views', __dirname + '/public/views');
-app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs')
 
 //Use
 app.use(require("./controllers"));
-app.use(express.static('public'));
+app.use(morgan('dev'));
+app.use('/public', express.static('public'));
 app.use(bodyparser.json());
 
 app.get('/listUsers', function(req, res){

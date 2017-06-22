@@ -7,7 +7,8 @@ var router = express.Router();
 router.use(require("./todo"));
 
 router.get('/', function(req, res){
-    res.render('index.html')
+  console.log("Hello!")
+    res.render('index')
 })
 
 module.exports = router;
